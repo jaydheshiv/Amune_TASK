@@ -236,12 +236,12 @@ finance-tracker/
 
 **Goal:** Python SDK generated (not hand-written) from the live OpenAPI spec.
 
-- [ ] **5.1** Start the backend (`python main.py`); confirm `http://localhost:8000/openapi.json` loads.
-- [ ] **5.2** Install the generator (needs Node and Java): `npm install -g @openapitools/openapi-generator-cli`
-- [ ] **5.3** Generate (separate command): `openapi-generator-cli generate -i http://localhost:8000/openapi.json -g python -o finance_sdk`
-- [ ] **5.4** Install: `pip install -e finance_sdk`
-- [ ] **5.5** Write `sdk_smoke_test.py` (project root) using `TransactionsApi` with `Configuration(host="http://localhost:8000")`; call create, list, summary, reclassify, delete.
-- [ ] **5.6** Confirm `finance_sdk/api/transactions_api.py` exists with readable method names (from `operation_id`s). If names are ugly, fix `operation_id`/`tags` in the backend and regenerate. Do not edit the SDK.
+- [x] **5.1** Start the backend (`python main.py`); confirm `http://localhost:8000/openapi.json` loads.
+- [x] **5.2** Install the generator (needs Node and Java): `npm install -g @openapitools/openapi-generator-cli`
+- [x] **5.3** Generate (separate command): `openapi-generator-cli generate -i http://localhost:8000/openapi.json -g python -o finance_sdk`
+- [x] **5.4** Install: `pip install -e finance_sdk`
+- [x] **5.5** Write `sdk_smoke_test.py` (project root) using `TransactionsApi` with `Configuration(host="http://localhost:8000")`; call create, list, summary, reclassify, delete.
+- [x] **5.6** Confirm `finance_sdk/api/transactions_api.py` exists with readable method names (from `operation_id`s). If names are ugly, fix `operation_id`/`tags` in the backend and regenerate. Do not edit the SDK.
 
 **Done when:** the smoke test runs successfully against the live backend.
 
@@ -349,8 +349,8 @@ finance-tracker/
 | 2. Backend | Done | All 5 endpoints, business rules, and OpenAPI spec verified |
 | 3. Backend Tests | Done | 25/25 unit tests passing cleanly |
 | 4. Frontend | Done | React app with forms, filters, summary, and pie chart verified |
-| 5. SDK Generation | In progress | Ready to generate Python SDK via OpenAPI Generator CLI |
-| 6. Scripts & Docs | Not started | |
+| 5. SDK Generation | Done | Python SDK generated via OpenAPI Generator CLI; smoke test passed |
+| 6. Scripts & Docs | In progress | Preparing setupdev.bat, runapplication.bat, and README.md |
 | 7. Bonus Features (optional) | Not started | Only after Phases 1-6 are Done |
 
 Status values: `Not started` | `In progress` | `Done` | `Blocked`.
