@@ -531,6 +531,12 @@ input:focus, select:focus {
   }
 }
 
+.chart-toggle-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 /* Custom Tooltip in Recharts */
 .custom-tooltip {
   background-color: var(--bg-card);

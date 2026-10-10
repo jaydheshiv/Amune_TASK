@@ -297,18 +297,18 @@ finance-tracker/
 
 ### 7.1 Charts and dashboard (frontend only)
 
-- [ ] **7.1.1 Balance card:** show total income, total expenses, and net balance for the selected month, computed from the summary response. Net = income minus expenses; color it green if positive, red if negative.
-- [ ] **7.1.2 Income vs expense bar chart:** Recharts `BarChart`, one pair of bars per month, built from `GET /transactions/summary` (all months).
-- [ ] **7.1.3 Spending trend line chart:** Recharts `LineChart` of total monthly expenses over time, built from the same summary data.
-- [ ] **7.1.4 Empty states:** each chart shows a clear "No data for this period" message instead of rendering blank.
+- [x] **7.1.1 Balance card:** show total income, total expenses, and net balance for the selected month, computed from the summary response. Net = income minus expenses; color it green if positive, red if negative.
+- [x] **7.1.2 Income vs expense bar chart:** Recharts `BarChart`, one pair of bars per month, built from `GET /transactions/summary` (all months).
+- [x] **7.1.3 Spending trend line chart:** Recharts `LineChart` of total monthly expenses over time, built from the same summary data.
+- [x] **7.1.4 Empty states:** each chart shows a clear "No data for this period" message instead of rendering blank.
 
 **Done when:** all charts render from real API data, update after add/delete/reclassify, and `npm run build` passes.
 
 ### 7.2 Real-time updates
 
-- [ ] **7.2.1 Polling:** refetch list, summary, and charts every 10 seconds using `setInterval` inside `useEffect`, with proper cleanup on unmount.
-- [ ] **7.2.2 Smart polling:** pause polling while the browser tab is hidden (`document.visibilityState`) and refetch immediately when it becomes visible again. Make the interval configurable via `REACT_APP_POLL_INTERVAL_MS` (default 10000).
-- [ ] **7.2.3 Do not disrupt the user:** polling must not clear form input, reset filters, or close an open reclassify editor.
+- [x] **7.2.1 Polling:** refetch list, summary, and charts every 10 seconds using `setInterval` inside `useEffect`, with proper cleanup on unmount.
+- [x] **7.2.2 Smart polling:** pause polling while the browser tab is hidden (`document.visibilityState`) and refetch immediately when it becomes visible again. Make the interval configurable via `REACT_APP_POLL_INTERVAL_MS` (default 10000).
+- [x] **7.2.3 Do not disrupt the user:** polling must not clear form input, reset filters, or close an open reclassify editor.
 - [ ] **7.2.4 (Stretch) Server-Sent Events:** only after everything else in Phase 7 is done and tested. Add `GET /transactions/stream` (`operation_id`: `stream_transaction_events`) that emits an event after create, delete, or reclassify; the frontend refetches on each event and **falls back to polling** if the stream disconnects. Log the design in Section 13.
 
 **Done when:** a change made in one browser tab appears in a second tab within the poll interval, with no manual refresh.
@@ -318,15 +318,15 @@ finance-tracker/
 - [ ] **7.3.1 Pagination:** optional `limit` (1-500) and `offset` (>= 0) on `GET /transactions/`. Without them, behavior is unchanged. Invalid values return 422. Add tests for first page, last page, and offset beyond the end (returns `[]`).
 - [ ] **7.3.2 Search:** optional `q` on `GET /transactions/`, a case-insensitive substring match on `description`. It must combine correctly with the month, type, category, `limit`, and `offset` filters. Add tests.
 - [ ] **7.3.3 CSV export:** `GET /transactions/export` (`operation_id`: `export_transactions`) returns `text/csv` with columns `id,description,amount,transaction_type,category,auto_tagged,timestamp`. Amounts are **absolute values**, consistent with the rest of the API. Respects the same filters as the list endpoint. Add tests for headers, content type, and filtered output.
-- [ ] **7.3.4 Health check:** `GET /health` (`operation_id`: `health_check`) returns `{"status": "ok"}` after a trivial DB query; returns 503 with `{"detail": ...}` if the DB is unreachable. Add tests.
+- [x] **7.3.4 Health check:** `GET /health` (`operation_id`: `health_check`) returns `{"status": "ok"}` after a trivial DB query; returns 503 with `{"detail": ...}` if the DB is unreachable. Add tests.
 
 **Done when:** every new parameter and endpoint appears in Swagger, has passing tests, and existing tests still pass unchanged.
 
 ### 7.4 Frontend polish
 
-- [ ] **7.4.1 Color-coded rows:** green for income, red for expense.
-- [ ] **7.4.2 "Manual" badge:** show a badge on rows where `auto_tagged = false`.
-- [ ] **7.4.3 Delete confirmation:** ask for confirmation before deleting.
+- [x] **7.4.1 Color-coded rows:** green for income, red for expense.
+- [x] **7.4.2 "Manual" badge:** show a badge on rows where `auto_tagged = false`.
+- [x] **7.4.3 Delete confirmation:** ask for confirmation before deleting.
 - [ ] **7.4.4 Search box and pagination controls:** wire to the 7.3.1 and 7.3.2 parameters (only after those are done).
 - [ ] **7.4.5 Export button:** download the CSV from 7.3.3 using the current filters (only after 7.3.3 is done).
 

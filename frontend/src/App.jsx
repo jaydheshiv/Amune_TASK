@@ -3,11 +3,13 @@ import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import MonthlySummary from "./components/MonthlySummary";
 import ExpensePieChart from "./components/ExpensePieChart";
+import MonthlyComparisonChart from "./components/MonthlyComparisonChart";
 import { listTransactions, getSummary, getErrorMessage } from "./api";
 
 export default function App() {
   const [transactions, setTransactions] = useState([]);
   const [summaryData, setSummaryData] = useState([]);
+  const [allSummaryData, setAllSummaryData] = useState([]);
   const [loadingTransactions, setLoadingTransactions] = useState(false);
   const [loadingSummary, setLoadingSummary] = useState(false);
   const [globalError, setGlobalError] = useState(null);
@@ -43,12 +45,16 @@ export default function App() {
     }
   }, [filters]);
 
-  // Fetch summary data
+  // Fetch summary data for filtered month and for all months
   const fetchSummary = useCallback(async () => {
     setLoadingSummary(true);
     try {
-      const data = await getSummary(summaryMonth || null);
-      setSummaryData(data);
+      const [filteredData, overallData] = await Promise.all([
+        getSummary(summaryMonth || null),
+        getSummary(null),
+      ]);
+      setSummaryData(filteredData);
+      setAllSummaryData(overallData);
     } catch (err) {
       console.error("Failed to load summary:", err);
     } finally {
@@ -114,10 +120,15 @@ export default function App() {
           </div>
         )}
 
-        {/* Top Section: Form + Chart */}
+        {/* Top Section: Form + Category Pie Chart */}
         <section className="top-grid">
           <TransactionForm onTransactionAdded={triggerRefresh} />
           <ExpensePieChart summaryData={summaryData} selectedMonth={summaryMonth} />
+        </section>
+
+        {/* Monthly Historical Comparison Section (Bonus 7.1.2 & 7.1.3) */}
+        <section>
+          <MonthlyComparisonChart allSummaryData={allSummaryData} />
         </section>
 
         {/* Monthly Summary Section */}
