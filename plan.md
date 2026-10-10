@@ -217,16 +217,16 @@ finance-tracker/
 
 **Goal:** functional UI. Style is not a priority. Only talks to the API.
 
-- [ ] **4.1** Scaffold `frontend/` (Create React App or Vite), install `axios` and `recharts`.
-- [ ] **4.2** `src/api.js`: single Axios instance (base URL from `REACT_APP_API_URL`), functions: `createTransaction`, `listTransactions(filters)`, `getSummary(month)`, `deleteTransaction(id)`, `reclassifyTransaction(id, category)`. Extract the error `detail` message for display.
-- [ ] **4.3** `TransactionForm`: amount, description, type select; show success and API error messages (409/422) inline; clear on success.
-- [ ] **4.4** `TransactionList`: table with filters (month, type, category); per-row Delete and Reclassify (dropdown or inline input + Save); show `auto_tagged` indicator.
-- [ ] **4.5** `MonthlySummary`: month picker; table by category with income and expense columns.
-- [ ] **4.6** `App.js`: compose components; shared refresh trigger so add, delete, and reclassify refresh the list, summary, and chart.
-- [ ] **4.7** Loading and error states on every API call.
-- [ ] **4.8 (Bonus)** `ExpensePieChart` (Recharts) of expenses by category for the selected month.
-- [ ] **4.9 (Bonus)** Auto-refresh: poll every 10s or refetch on window focus.
-- [ ] **4.10** Verify `npm run build` passes and the full flow works against the running backend.
+- [x] **4.1** Scaffold `frontend/` (Create React App or Vite), install `axios` and `recharts`.
+- [x] **4.2** `src/api.js`: single Axios instance (base URL from `REACT_APP_API_URL`), functions: `createTransaction`, `listTransactions(filters)`, `getSummary(month)`, `deleteTransaction(id)`, `reclassifyTransaction(id, category)`. Extract the error `detail` message for display.
+- [x] **4.3** `TransactionForm`: amount, description, type select; show success and API error messages (409/422) inline; clear on success.
+- [x] **4.4** `TransactionList`: table with filters (month, type, category); per-row Delete and Reclassify (dropdown or inline input + Save); show `auto_tagged` indicator.
+- [x] **4.5** `MonthlySummary`: month picker; table by category with income and expense columns.
+- [x] **4.6** `App.js`: compose components; shared refresh trigger so add, delete, and reclassify refresh the list, summary, and chart.
+- [x] **4.7** Loading and error states on every API call.
+- [x] **4.8 (Bonus)** `ExpensePieChart` (Recharts) of expenses by category for the selected month.
+- [x] **4.9 (Bonus)** Auto-refresh: poll every 10s or refetch on window focus.
+- [x] **4.10** Verify `npm run build` passes and the full flow works against the running backend.
 
 **Done when:** add, list+filter, summary, reclassify, delete all work end-to-end in the browser.
 
@@ -348,8 +348,8 @@ finance-tracker/
 | 1. Setup & Database | Done | Database schema, migrations, and seed data complete |
 | 2. Backend | Done | All 5 endpoints, business rules, and OpenAPI spec verified |
 | 3. Backend Tests | Done | 25/25 unit tests passing cleanly |
-| 4. Frontend | In progress | Ready to scaffold React client |
-| 5. SDK Generation | Not started | |
+| 4. Frontend | Done | React app with forms, filters, summary, and pie chart verified |
+| 5. SDK Generation | In progress | Ready to generate Python SDK via OpenAPI Generator CLI |
 | 6. Scripts & Docs | Not started | |
 | 7. Bonus Features (optional) | Not started | Only after Phases 1-6 are Done |
 
