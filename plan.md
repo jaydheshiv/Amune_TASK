@@ -175,7 +175,7 @@ finance-tracker/
 - [x] **2.1 Categorizer:** `services/categorizer.py` with `CATEGORY_KEYWORDS`, `FALLBACK`, `categorize(description) -> str`. Case-insensitive; handles apostrophes (`McDonald's` -> Food).
 - [x] **2.2 Schemas:** `TransactionCreate`, `TransactionOut`, `ReclassifyRequest`, `CategorySummary` per Section 5. Use `Literal` for type, `Field(gt=0)` for amount, strip whitespace validators.
 - [x] **2.3 Exceptions:** `DuplicateTransactionError`, `TransactionNotFoundError`, `InvalidTransactionError` plus handlers returning `{"detail": ...}` with codes 409, 404, 422. Add a catch-all 500 handler.
-- [ ] **2.4 Service layer** (`transaction_service.py`), functions taking `db` as the first argument:
+- [x] **2.4 Service layer** (`transaction_service.py`), functions taking `db` as the first argument:
   - `create_transaction(db, data)`: semantic validation -> sign handling -> duplicate check -> categorize -> save.
   - `list_transactions(db, month, type, category)`
   - `get_summary(db, month)`: group by `strftime('%Y-%m', timestamp)` and category; `total_income` and `total_expense` as positive values.
