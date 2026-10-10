@@ -173,7 +173,7 @@ finance-tracker/
 **Goal:** all 5 endpoints with trick logic, error handling, Swagger.
 
 - [x] **2.1 Categorizer:** `services/categorizer.py` with `CATEGORY_KEYWORDS`, `FALLBACK`, `categorize(description) -> str`. Case-insensitive; handles apostrophes (`McDonald's` -> Food).
-- [ ] **2.2 Schemas:** `TransactionCreate`, `TransactionOut`, `ReclassifyRequest`, `CategorySummary` per Section 5. Use `Literal` for type, `Field(gt=0)` for amount, strip whitespace validators.
+- [x] **2.2 Schemas:** `TransactionCreate`, `TransactionOut`, `ReclassifyRequest`, `CategorySummary` per Section 5. Use `Literal` for type, `Field(gt=0)` for amount, strip whitespace validators.
 - [ ] **2.3 Exceptions:** `DuplicateTransactionError`, `TransactionNotFoundError`, `InvalidTransactionError` plus handlers returning `{"detail": ...}` with codes 409, 404, 422. Add a catch-all 500 handler.
 - [ ] **2.4 Service layer** (`transaction_service.py`), functions taking `db` as the first argument:
   - `create_transaction(db, data)`: semantic validation -> sign handling -> duplicate check -> categorize -> save.
