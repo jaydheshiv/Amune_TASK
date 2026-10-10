@@ -181,7 +181,7 @@ finance-tracker/
   - `get_summary(db, month)`: group by `strftime('%Y-%m', timestamp)` and category; `total_income` and `total_expense` as positive values.
   - `delete_transaction(db, id)`
   - `reclassify_transaction(db, id, category)`: sets `auto_tagged = False`.
-- [ ] **2.5 Router:** `routers/transactions.py` with the 5 routes, thin handlers calling services, `Depends(get_db)`, correct `status_code`, `response_model`, `tags`, `operation_id`. Map stored negative amounts to absolute in `TransactionOut`.
+- [x] **2.5 Router:** `routers/transactions.py` with the 5 routes, thin handlers calling services, `Depends(get_db)`, correct `status_code`, `response_model`, `tags`, `operation_id`. Map stored negative amounts to absolute in `TransactionOut`.
 - [ ] **2.6 App:** `backend/main.py` with CORS (allow `http://localhost:3000`), router include, exception handlers. Root-level `main.py` runs `uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)`.
 - [ ] **2.7 Manual check:** run `python main.py`, open `/docs`, exercise every endpoint, including each error case.
 
