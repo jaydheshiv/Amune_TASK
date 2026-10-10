@@ -182,8 +182,8 @@ finance-tracker/
   - `delete_transaction(db, id)`
   - `reclassify_transaction(db, id, category)`: sets `auto_tagged = False`.
 - [x] **2.5 Router:** `routers/transactions.py` with the 5 routes, thin handlers calling services, `Depends(get_db)`, correct `status_code`, `response_model`, `tags`, `operation_id`. Map stored negative amounts to absolute in `TransactionOut`.
-- [ ] **2.6 App:** `backend/main.py` with CORS (allow `http://localhost:3000`), router include, exception handlers. Root-level `main.py` runs `uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)`.
-- [ ] **2.7 Manual check:** run `python main.py`, open `/docs`, exercise every endpoint, including each error case.
+- [x] **2.6 App:** `backend/main.py` with CORS (allow `http://localhost:3000`), router include, exception handlers. Root-level `main.py` runs `uvicorn.run("backend.main:app", host="0.0.0.0", port=8000, reload=True)`.
+- [x] **2.7 Manual check:** run `python main.py`, open `/docs`, exercise every endpoint, including each error case.
 
 **Done when:** every row of the Section 5 table behaves exactly as specified in Swagger.
 
@@ -193,9 +193,9 @@ finance-tracker/
 
 **Goal:** tests for every rule; all green.
 
-- [ ] **3.1** `conftest.py`: temp or in-memory SQLite (`StaticPool` for in-memory), create tables per test, override `get_db`, provide `client` fixture.
-- [ ] **3.2** `test_categorizer.py`: McDonald's -> Food; Uber -> Transport; unknown -> Uncategorized; case-insensitivity; multiple keyword cases.
-- [ ] **3.3** `test_transactions.py` covering:
+- [x] **3.1** `conftest.py`: temp or in-memory SQLite (`StaticPool` for in-memory), create tables per test, override `get_db`, provide `client` fixture.
+- [x] **3.2** `test_categorizer.py`: McDonald's -> Food; Uber -> Transport; unknown -> Uncategorized; case-insensitivity; multiple keyword cases.
+- [x] **3.3** `test_transactions.py` covering:
   - create success (201, auto-category, `auto_tagged = true`)
   - invalid type -> 422; amount <= 0 -> 422; empty description -> 422
   - `Rent` as `income` -> 422; `Salary` as `expense` -> 422
@@ -206,8 +206,8 @@ finance-tracker/
   - reclassify Uber Transport -> Travel: category updated, `auto_tagged = false`
   - reclassify missing id -> 404; delete -> 204, delete again -> 404
   - list filters: month, type, category, combined
-- [ ] **3.4** `test_summary.py`: grouping by month and category, absolute expense totals, income and expense separated, `?month=` filter, invalid month -> 422, empty result -> `[]`.
-- [ ] **3.5** Run `pytest -v`; fix until green.
+- [x] **3.4** `test_summary.py`: grouping by month and category, absolute expense totals, income and expense separated, `?month=` filter, invalid month -> 422, empty result -> `[]`.
+- [x] **3.5** Run `pytest -v`; fix until green.
 
 **Done when:** `pytest -v` passes fully and each rule in Section 1.3 has at least one test.
 
@@ -346,9 +346,9 @@ finance-tracker/
 | Phase | Status | Notes |
 |---|---|---|
 | 1. Setup & Database | Done | Database schema, migrations, and seed data complete |
-| 2. Backend | In progress | Developing categorization, schemas, services, and routes |
-| 3. Backend Tests | Not started | |
-| 4. Frontend | Not started | |
+| 2. Backend | Done | All 5 endpoints, business rules, and OpenAPI spec verified |
+| 3. Backend Tests | Done | 25/25 unit tests passing cleanly |
+| 4. Frontend | In progress | Ready to scaffold React client |
 | 5. SDK Generation | Not started | |
 | 6. Scripts & Docs | Not started | |
 | 7. Bonus Features (optional) | Not started | Only after Phases 1-6 are Done |
