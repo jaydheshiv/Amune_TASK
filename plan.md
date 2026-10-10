@@ -156,8 +156,8 @@ finance-tracker/
 
 - [x] **1.1** Create folder structure from Section 4 (empty `__init__.py` files included).
 - [x] **1.2** Create `requirements.txt`: fastapi, uvicorn[standard], sqlalchemy, alembic, pydantic, pytest, httpx.
-- [ ] **1.3** `config.py`: `DATABASE_URL`, `DUPLICATE_WINDOW_SECONDS` (default 300), read from env with defaults.
-- [ ] **1.4** `database.py`: engine (`check_same_thread=False`), `SessionLocal`, `Base`, `get_db()` generator dependency.
+- [x] **1.3** `config.py`: `DATABASE_URL`, `DUPLICATE_WINDOW_SECONDS` (default 300), read from env with defaults.
+- [x] **1.4** `database.py`: engine (`check_same_thread=False`), `SessionLocal`, `Base`, `get_db()` generator dependency.
 - [ ] **1.5** `models.py`: `Transaction` model exactly matching the spec table:
   `id` (PK autoincrement), `description` (TEXT NOT NULL), `amount` (REAL NOT NULL), `transaction_type` (TEXT NOT NULL, CHECK in income/expense), `category` (TEXT), `auto_tagged` (BOOLEAN NOT NULL DEFAULT 1), `timestamp` (TIMESTAMP DEFAULT CURRENT_TIMESTAMP).
 - [ ] **1.6** Initialize Alembic, wire `env.py` to `Base.metadata` and `DATABASE_URL`, generate the initial migration, **manually verify** the CHECK constraint and defaults appear in it.
