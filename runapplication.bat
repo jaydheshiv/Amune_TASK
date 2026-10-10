@@ -1,0 +1,6 @@
+@echo off
+echo Starting backend...
+start "Finance Backend" cmd /k "call env\Scripts\activate && python main.py"
+echo Starting frontend...
+cd frontend
+npm start
