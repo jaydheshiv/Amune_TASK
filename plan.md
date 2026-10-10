@@ -161,8 +161,8 @@ finance-tracker/
 - [x] **1.5** `models.py`: `Transaction` model exactly matching the spec table:
   `id` (PK autoincrement), `description` (TEXT NOT NULL), `amount` (REAL NOT NULL), `transaction_type` (TEXT NOT NULL, CHECK in income/expense), `category` (TEXT), `auto_tagged` (BOOLEAN NOT NULL DEFAULT 1), `timestamp` (TIMESTAMP DEFAULT CURRENT_TIMESTAMP).
 - [x] **1.6** Initialize Alembic, wire `env.py` to `Base.metadata` and `DATABASE_URL`, generate the initial migration, **manually verify** the CHECK constraint and defaults appear in it.
-- [ ] **1.7** Run `alembic upgrade head`; confirm table exists.
-- [ ] **1.8** Write `seed_data.sql`: 15-20 rows, 3+ months, categories Food/Transport/Travel/Rent/Utilities/Salary/Entertainment, expenses **negative**, include `auto_tagged` values (some `0`).
+- [x] **1.7** Run `alembic upgrade head`; confirm table exists.
+- [x] **1.8** Write `seed_data.sql`: 15-20 rows, 3+ months, categories Food/Transport/Travel/Rent/Utilities/Salary/Entertainment, expenses **negative**, include `auto_tagged` values (some `0`).
 
 **Done when:** `alembic upgrade head` succeeds on a clean DB and `sqlite3 finance.db < seed_data.sql` loads without error.
 
@@ -345,8 +345,8 @@ finance-tracker/
 
 | Phase | Status | Notes |
 |---|---|---|
-| 1. Setup & Database | Not started | |
-| 2. Backend | Not started | |
+| 1. Setup & Database | Done | Database schema, migrations, and seed data complete |
+| 2. Backend | In progress | Developing categorization, schemas, services, and routes |
 | 3. Backend Tests | Not started | |
 | 4. Frontend | Not started | |
 | 5. SDK Generation | Not started | |
