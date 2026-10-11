@@ -34,7 +34,7 @@ export default function TransactionForm({ onTransactionAdded }) {
       });
 
       setSuccess(
-        `Transaction recorded! Auto-categorized as "${created.category}" (Amount: $${created.amount.toFixed(2)})`
+        `Transaction recorded! Auto-categorized as "${created.category}" (Amount: ₹${created.amount.toFixed(2)})`
       );
       setDescription("");
       setAmount("");
@@ -88,7 +88,7 @@ export default function TransactionForm({ onTransactionAdded }) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="amount">Amount ($)</label>
+          <label htmlFor="amount">Amount (₹)</label>
           <input
             id="amount"
             type="number"

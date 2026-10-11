@@ -52,7 +52,7 @@ export default function ExpensePieChart({ summaryData, selectedMonth }) {
       return (
         <div className="custom-tooltip">
           <p className="tooltip-title"><strong>{data.name}</strong></p>
-          <p className="tooltip-amount">${data.value.toFixed(2)} ({percentage}%)</p>
+          <p className="tooltip-amount">₹{data.value.toFixed(2)} ({percentage}%)</p>
         </div>
       );
     }
@@ -65,7 +65,7 @@ export default function ExpensePieChart({ summaryData, selectedMonth }) {
         <div>
           <h2 className="card-title">Expense Breakdown by Category</h2>
           <p className="card-subtitle">
-            {selectedMonth ? `Expenses for ${selectedMonth}` : "All Recorded Expenses"} • Total: ${totalExpense.toFixed(2)}
+            {selectedMonth ? `Expenses for ${selectedMonth}` : "All Recorded Expenses"} • Total: ₹{totalExpense.toFixed(2)}
           </p>
         </div>
       </div>

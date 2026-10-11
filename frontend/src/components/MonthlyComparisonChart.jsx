@@ -57,7 +57,7 @@ export default function MonthlyComparisonChart({ allSummaryData }) {
           <p className="tooltip-title"><strong>Month: {label}</strong></p>
           {payload.map((p, idx) => (
             <p key={idx} style={{ color: p.color }}>
-              {p.name}: ${p.value.toFixed(2)}
+              {p.name}: ₹{p.value.toFixed(2)}
             </p>
           ))}
         </div>

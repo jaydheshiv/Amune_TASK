@@ -222,7 +222,7 @@ export default function TransactionList({
                       </span>
                     </td>
                     <td className={`text-right cell-amount ${isIncome ? "amount-income" : "amount-expense"}`}>
-                      {isIncome ? `+$${tx.amount.toFixed(2)}` : `-$${tx.amount.toFixed(2)}`}
+                      {isIncome ? `+₹${tx.amount.toFixed(2)}` : `-₹${tx.amount.toFixed(2)}`}
                     </td>
                     <td className="text-center cell-actions">
                       {isEditing ? (

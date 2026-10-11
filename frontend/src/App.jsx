@@ -155,14 +155,14 @@ export default function App() {
                 <div className="kpi-icon">↑</div>
                 <div>
                   <div className="kpi-label">Total Income</div>
-                  <div className="kpi-value">+${totalIncome.toFixed(2)}</div>
+                  <div className="kpi-value">+₹{totalIncome.toFixed(2)}</div>
                 </div>
               </div>
               <div className="kpi-tile kpi-expense">
                 <div className="kpi-icon">↓</div>
                 <div>
                   <div className="kpi-label">Total Expense</div>
-                  <div className="kpi-value">-${totalExpense.toFixed(2)}</div>
+                  <div className="kpi-value">-₹{totalExpense.toFixed(2)}</div>
                 </div>
               </div>
               <div className={`kpi-tile ${netBalance >= 0 ? "kpi-net-pos" : "kpi-net-neg"}`}>
@@ -170,7 +170,7 @@ export default function App() {
                 <div>
                   <div className="kpi-label">Net Balance</div>
                   <div className="kpi-value">
-                    {netBalance >= 0 ? `+$${netBalance.toFixed(2)}` : `-$${Math.abs(netBalance).toFixed(2)}`}
+                    {netBalance >= 0 ? `+₹${netBalance.toFixed(2)}` : `-₹${Math.abs(netBalance).toFixed(2)}`}
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ export default function App() {
                             </span>
                           </td>
                           <td className={`text-right ${isIncome ? "amount-income" : "amount-expense"}`}>
-                            {isIncome ? `+$${tx.amount.toFixed(2)}` : `-$${tx.amount.toFixed(2)}`}
+                            {isIncome ? `+₹${tx.amount.toFixed(2)}` : `-₹${tx.amount.toFixed(2)}`}
                           </td>
                         </tr>
                       );

@@ -38,16 +38,16 @@ export default function MonthlySummary({ summaryData, selectedMonth, onMonthChan
       <div className="kpi-grid">
         <div className="kpi-card kpi-income">
           <div className="kpi-label">Total Income</div>
-          <div className="kpi-value">+${totalIncome.toFixed(2)}</div>
+          <div className="kpi-value">+₹{totalIncome.toFixed(2)}</div>
         </div>
         <div className="kpi-card kpi-expense">
           <div className="kpi-label">Total Expense</div>
-          <div className="kpi-value">-${totalExpense.toFixed(2)}</div>
+          <div className="kpi-value">-₹{totalExpense.toFixed(2)}</div>
         </div>
         <div className={`kpi-card ${netSavings >= 0 ? "kpi-net-positive" : "kpi-net-negative"}`}>
           <div className="kpi-label">Net Balance</div>
           <div className="kpi-value">
-            {netSavings >= 0 ? `+$${netSavings.toFixed(2)}` : `-$${Math.abs(netSavings).toFixed(2)}`}
+            {netSavings >= 0 ? `+₹${netSavings.toFixed(2)}` : `-₹${Math.abs(netSavings).toFixed(2)}`}
           </div>
         </div>
       </div>
@@ -84,13 +84,13 @@ export default function MonthlySummary({ summaryData, selectedMonth, onMonthChan
                       <span className="badge badge-category">{row.category}</span>
                     </td>
                     <td className="text-right amount-income">
-                      {row.total_income > 0 ? `+$${row.total_income.toFixed(2)}` : "$0.00"}
+                      {row.total_income > 0 ? `+₹${row.total_income.toFixed(2)}` : "₹0.00"}
                     </td>
                     <td className="text-right amount-expense">
-                      {row.total_expense > 0 ? `-$${row.total_expense.toFixed(2)}` : "$0.00"}
+                      {row.total_expense > 0 ? `-₹${row.total_expense.toFixed(2)}` : "₹0.00"}
                     </td>
                     <td className={`text-right font-medium ${rowNet >= 0 ? "amount-income" : "amount-expense"}`}>
-                      {rowNet >= 0 ? `+$${rowNet.toFixed(2)}` : `-$${Math.abs(rowNet).toFixed(2)}`}
+                      {rowNet >= 0 ? `+₹${rowNet.toFixed(2)}` : `-₹${Math.abs(rowNet).toFixed(2)}`}
                     </td>
                   </tr>
                 );
