@@ -39,6 +39,18 @@ app.add_exception_handler(Exception, generic_exception_handler)
 app.include_router(transactions.router)
 
 
+@app.get("/", tags=["system"], operation_id="root_index")
+def root_index() -> dict[str, str]:
+    """Root endpoint confirming backend status and providing links."""
+    return {
+        "status": "running",
+        "message": "Personal Finance Tracker API is running",
+        "docs": "/docs",
+        "health": "/health",
+        "frontend": "http://localhost:3000",
+    }
+
+
 @app.get("/health", tags=["system"], operation_id="health_check")
 def health_check() -> dict[str, str]:
     """Health check endpoint."""
