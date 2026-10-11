@@ -51,11 +51,14 @@ export default function TransactionForm({ onTransactionAdded }) {
 
   return (
     <div className="card form-card">
-      <h2 className="card-title">Add Transaction</h2>
-      <p className="card-subtitle">
-        Enter details below. Transactions are auto-categorized automatically.
-      </p>
-
+      <div className="card-header">
+        <div>
+          <h2 className="card-title">➕ Add Transaction</h2>
+          <p className="card-subtitle">
+            Auto-categorized by keywords — just describe it naturally.
+          </p>
+        </div>
+      </div>
       {error && (
         <div className="alert alert-error" role="alert">
           <span className="alert-icon">⚠️</span>

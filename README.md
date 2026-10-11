@@ -79,6 +79,20 @@ Run the automated setup script to create the virtual environment, install backen
 setupdev.bat
 ```
 
+### Step 1.5: (Optional) Paste Your Groq API Key
+The application supports **AI Auto-Categorization** via the Groq API alongside an instant **hard-coded keyword fallback**:
+1. Open the `.env` file created in the project root (or copy `.env.example` to `.env`):
+   ```cmd
+   copy .env.example .env
+   ```
+2. Paste your own Groq API key:
+   ```env
+   GROQ_API_KEY=gsk_your_groq_api_key_here
+   ```
+   *(Get a free key in seconds at [console.groq.com/keys](https://console.groq.com/keys))*
+
+> 💡 **Notice for Evaluators**: If you do not have or prefer not to configure a Groq API key, simply leave `GROQ_API_KEY=` blank. The system seamlessly runs with **100% functionality** using the built-in hard-coded keyword fallback matching dictionary (`Food`, `Transport`, `Rent`, `Utilities`, `Entertainment`, `Salary`, `Travel`, `Healthcare`).
+
 ### Step 2: Launch Application
 Run the execution script to launch the FastAPI backend (on port `8000`) and the React frontend (on port `3000`):
 ```cmd

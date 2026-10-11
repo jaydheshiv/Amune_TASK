@@ -79,10 +79,11 @@ export default function ExpensePieChart({ summaryData, selectedMonth }) {
               nameKey="name"
               cx="50%"
               cy="50%"
-              outerRadius={100}
+              outerRadius={95}
               innerRadius={50}
               paddingAngle={3}
-              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+              label={({ name, percent }) => (percent >= 0.04 ? `${name} ${(percent * 100).toFixed(0)}%` : "")}
+              labelLine={({ percent }) => percent >= 0.04}
             >
               {categoryExpenses.map((entry, index) => (
                 <Cell
